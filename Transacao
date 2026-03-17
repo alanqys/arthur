@@ -1,0 +1,18 @@
+public class Transacao {
+    double valor;
+    String tipo;
+    String data;
+    String detalhes;
+
+    public Transacao(double valor, String tipo, String data, String detalhes) {
+        this.valor = valor;
+        this.tipo = tipo;
+        this.data = data;
+        this.detalhes = detalhes;
+    }
+
+    @Override
+    public String toString() {
+        return data + " - " + tipo + ": R$ " + valor + " (" + detalhes + ")";
+    }
+}

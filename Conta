@@ -17,26 +17,32 @@ public class Conta {
         if (valor > 0) {
             this.saldo += valor;
             this.transacoes.add(new Transacao(valor, "DEPOSITO", "16/03/2026", "Entrada em dinheiro"));
+        } else {
+            System.out.println("Valor invalido!");
         }
     }
 
     public void sacar(double valor) {
-        if (valor > 0 && valor <= this.saldo) {
+        if (valor <= 0) {
+            System.out.println("Valor invalido");
+
+        } else if (valor <= this.saldo){
             this.saldo -= valor;
             this.transacoes.add(new Transacao(valor, "SAQUE", "16/03/2026", "Saque realizado"));
+
         } else {
-            System.out.println("Saldo insuficiente para saque de: R$ " + valor);
+            System.out.println("SEM SALDO INSUFICIENTE PARA SACAR " + valor);
         }
     }
 
     public void resumo() {
-        System.out.println("\n=== EXTRATO DA CONTA ===");
-        System.out.println("Cliente: " + cliente + " | Numero: " + numero);
-        System.out.println("Saldo Atual: R$ " + saldo);
-        System.out.println("-------------------------");
-        
+        System.out.println("-----EXTRATO DA CONTA-----");
+        System.out.println("Cliente: " + cliente + "Número" + numero);
+        System.out.println("Saldo atual: " + saldo);
+        System.out.println("----------------");
+
         for (Transacao t : transacoes) {
-            System.out.println(t); 
+            System.out.println(t);
         }
     }
 }

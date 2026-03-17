@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Nome do cliente: ");
+        String nome = scanner.nextLine();
+        
+        Conta minhaConta = new Conta(101, nome, 0.0);
+
+        int opcao = 0;
+        while (opcao != 4) {
+            System.out.println("\n1-Depositar | 2-Sacar | 3-Extrato | 4-Sair");
+            System.out.print("Escolha uma opcao: ");
+            opcao = scanner.nextInt();
+
+            if (opcao == 1) {
+                System.out.print("Valor do deposito: ");
+                minhaConta.depositar(scanner.nextDouble());
+            } else if (opcao == 2) {
+                System.out.print("Valor do saque: ");
+                minhaConta.sacar(scanner.nextDouble());
+            } else if (opcao == 3) {
+                minhaConta.resumo();
+            }
+        }
+        
+        System.out.println("Sistema encerrado.");
+        scanner.close();
+    }
+}
